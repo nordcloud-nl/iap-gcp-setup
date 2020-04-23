@@ -15,31 +15,47 @@ If you're not seeing the Tutorial in the sidebar use the following Cloud shell c
 ```bash
 cloudshell launch-tutorial -d setup.md
 ```
+or
+```bash
+teachme setup.md
+```
 ## Select project to use
 
 <walkthrough-project-setup></walkthrough-project-setup>
 
 ## Give access to the automation tooling of Nordcloud
 
-Run the following three commands and change the `[project-name]` to your project name.
+First get the project id from the following list:
 
 ```bash
-gcloud nordcloud add-iam-policy-binding [project-name] \
+gcloud projects list
+```
+
+## Add IAM policy binding to Managed cloud group
+
+Run the following command and change the `[project-name]` to your project name or id.
+
+```bash
+gcloud projects add-iam-policy-binding [project-name] \
     --member group:mce-all@nordcloud.com --role roles/editor
 ```
 
-Add the Kubernetes admin
+## Add Editor role to IAP provisioner service account
+
+Run the following command and change the `[project-name]` to your project name or id.
 
 ```bash
-gcloud nordcloud add-iam-policy-binding [project-name] \
-    --member serviceAccount:provisioner-org@iap-service-508592859782.iam.gserviceaccount.com --role roles/container.clusterAdmin
+gcloud projects add-iam-policy-binding [project-name] \
+    --member serviceAccount:provisioner-org@iap-service-508592859782.iam.gserviceaccount.com --role roles/editor
 ```
 
-Give our Managed Cloud access
+## Add Kubernetes Clust admin to IAP provisioner
+
+Run the following command and change the `[project-name]` to your project name or id.
 
 ```bash
-gcloud nordcloud add-iam-policy-binding [project-name] \
-    --member serviceAccount:provisioner-org@iap-service-508592859782.iam.gserviceaccount.com --role roles/editor
+gcloud projects add-iam-policy-binding [project-name] \
+    --member serviceAccount:provisioner-org@iap-service-508592859782.iam.gserviceaccount.com --role roles/container.clusterAdmin
 ```
 
 ## Disable compute.requireOsLogin
@@ -55,7 +71,7 @@ gcloud compute project-info add-metadata \
 
 To setup the oauth consent screen that will be used by the Identity Aware Proxy to use a login screen.
 
-Go to the following link:
+Go to the following link and reopen cloud shell and run `teachme oauth.md`:
 
 [Oauth Consent Screen](https://console.cloud.google.com/apis/credentials/consent)
 
