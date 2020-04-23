@@ -11,5 +11,5 @@ The following steps need to be followed
 
 and
 
-<walkthrough-spotlight-pointer cssSelector=".mat-button-wrapper" text="Click the external radio button">
+<walkthrough-spotlight-pointer cssSelector="button.mat-focus-indicator.mat-raised-button.mat-button-base.mat-primary" text="Click the create button">
 </walkthrough-spotlight-pointer>
