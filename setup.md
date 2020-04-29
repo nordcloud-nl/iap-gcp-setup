@@ -23,43 +23,33 @@ teachme setup.md
 
 <walkthrough-project-setup key="my-project" ></walkthrough-project-setup>
 
-### Add IAM policy binding to Managed cloud group
+## Add IAM policy binding to Managed cloud group
 
-Run the following command and change the `[project-name]` to your project name or id.
+The command will setup up the GCP project for Nordcloud
+- Add Editor role to IAP provisioner service account
+- Add Kubernetes Admin to IAP provisioner
+- Add IAM policy binding to Managed cloud group
 
-```bash
-gcloud projects add-iam-policy-binding {{project-id}} \
-    --member group:mce-all@nordcloud.com --role roles/editor
-```
-
-### Add Editor role to IAP provisioner service account
-
-Run the following command and change the `[project-name]` to your project name or id.
+Run the following command:
 
 ```bash
 gcloud projects add-iam-policy-binding {{project-id}} \
-    --member serviceAccount:provisioner-org@iap-service-508592859782.iam.gserviceaccount.com --role roles/editor
-```
-
-### Add Kubernetes Clust admin to IAP provisioner
-
-Run the following command and change the `[project-name]` to your project name or id.
-
-```bash
+    --member group:mce-all@nordcloud.com --role roles/editor &&
+gcloud projects add-iam-policy-binding {{project-id}} \
+    --member serviceAccount:provisioner-org@iap-service-508592859782.iam.gserviceaccount.com --role roles/editor &&
 gcloud projects add-iam-policy-binding {{project-id}} \
     --member serviceAccount:provisioner-org@iap-service-508592859782.iam.gserviceaccount.com --role roles/container.clusterAdmin
 ```
 
-### Disable compute.requireOsLogin
+### Disable compute.requireOsLogin (OPTIONAL)
 
 Run the following gcloud command in cloud shell:
 
 ```bash
-gcloud compute project-info {{project-id}} add-metadata \
-    --metadata enable-oslogin=FALSE
+gcloud beta resource-manager org-policies disable-enforce --project {{project-id}} constraints/compute.requireOsLogin
 ```
 
-### Setup OAuth consent screen
+### Setup OAuth consent screen 
 
 To setup the oauth consent screen that will be used by the Identity Aware Proxy to use a login screen.
 
