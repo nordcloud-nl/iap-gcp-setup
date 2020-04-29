@@ -55,7 +55,7 @@ To setup the oauth consent screen that will be used by the Identity Aware Proxy 
 
 Go to the following link and reopen cloud shell and run `teachme oauth.md`:
 
-[Oauth Consent Screen](https://console.cloud.google.com/apis/credentials/consent?project={{project-id}})
+[Oauth Consent Screen](https://console.cloud.google.com/apis/credentials/consent?project={{project-id}}&cloudshell=true&tutorial=oauth.md)
 
 ## Congratulations
 
