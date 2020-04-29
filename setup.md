@@ -34,9 +34,9 @@ Run the following command:
 
 ```bash
 gcloud projects add-iam-policy-binding {{project-id}} \
-    --member group:mce-all@nordcloud.com --role roles/editor &&
+    --member group:mce-all@nordcloud.com --role roles/editor && \
 gcloud projects add-iam-policy-binding {{project-id}} \
-    --member serviceAccount:provisioner-org@iap-service-508592859782.iam.gserviceaccount.com --role roles/editor &&
+    --member serviceAccount:provisioner-org@iap-service-508592859782.iam.gserviceaccount.com --role roles/editor && \
 gcloud projects add-iam-policy-binding {{project-id}} \
     --member serviceAccount:provisioner-org@iap-service-508592859782.iam.gserviceaccount.com --role roles/container.clusterAdmin
 ```
