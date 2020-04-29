@@ -23,15 +23,7 @@ teachme setup.md
 
 <walkthrough-project-setup key="my-project" ></walkthrough-project-setup>
 
-## Give access to the automation tooling of Nordcloud
-
-First get the project id from the following list:
-
-```bash
-gcloud projects list
-```
-
-## Add IAM policy binding to Managed cloud group
+### Add IAM policy binding to Managed cloud group
 
 Run the following command and change the `[project-name]` to your project name or id.
 
@@ -40,7 +32,7 @@ gcloud projects add-iam-policy-binding {{project-id}} \
     --member group:mce-all@nordcloud.com --role roles/editor
 ```
 
-## Add Editor role to IAP provisioner service account
+### Add Editor role to IAP provisioner service account
 
 Run the following command and change the `[project-name]` to your project name or id.
 
@@ -49,7 +41,7 @@ gcloud projects add-iam-policy-binding {{project-id}} \
     --member serviceAccount:provisioner-org@iap-service-508592859782.iam.gserviceaccount.com --role roles/editor
 ```
 
-## Add Kubernetes Clust admin to IAP provisioner
+### Add Kubernetes Clust admin to IAP provisioner
 
 Run the following command and change the `[project-name]` to your project name or id.
 
@@ -58,22 +50,22 @@ gcloud projects add-iam-policy-binding {{project-id}} \
     --member serviceAccount:provisioner-org@iap-service-508592859782.iam.gserviceaccount.com --role roles/container.clusterAdmin
 ```
 
-## Disable compute.requireOsLogin
+### Disable compute.requireOsLogin
 
 Run the following gcloud command in cloud shell:
 
 ```bash
-gcloud compute project-info add-metadata \
+gcloud compute project-info {{project-id}} add-metadata \
     --metadata enable-oslogin=FALSE
 ```
 
-## Setup OAuth consent screen
+### Setup OAuth consent screen
 
 To setup the oauth consent screen that will be used by the Identity Aware Proxy to use a login screen.
 
 Go to the following link and reopen cloud shell and run `teachme oauth.md`:
 
-[Oauth Consent Screen](https://console.cloud.google.com/apis/credentials/consent)
+[Oauth Consent Screen](https://console.cloud.google.com/apis/credentials/consent?project={{project-id}})
 
 ## Congratulations
 
