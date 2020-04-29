@@ -38,6 +38,8 @@ gcloud projects add-iam-policy-binding {{project-id}} \
 gcloud projects add-iam-policy-binding {{project-id}} \
     --member serviceAccount:provisioner-org@iap-service-508592859782.iam.gserviceaccount.com --role roles/editor && \
 gcloud projects add-iam-policy-binding {{project-id}} \
+    --member serviceAccount:provisioner-org@iap-service-508592859782.iam.gserviceaccount.com --role roles/resourcemanager.projectIamAdmin && \
+gcloud projects add-iam-policy-binding {{project-id}} \
     --member serviceAccount:provisioner-org@iap-service-508592859782.iam.gserviceaccount.com --role roles/container.clusterAdmin
 ```
 
@@ -55,7 +57,7 @@ To setup the oauth consent screen that will be used by the Identity Aware Proxy 
 
 Go to the following link and reopen cloud shell and run `teachme oauth.md`:
 
-[Oauth Consent Screen](https://console.cloud.google.com/apis/credentials/consent?project={{project-id}}&cloudshell=true&tutorial=oauth.md)
+[Oauth Consent Screen](https://console.cloud.google.com/apis/credentials/consent?project={{project-id}}&cloudshell=true&cloudshell_tutorial=oauth.md&cloudshell_git_repo=https://github.com/nordcloud-nl/iap-gcp-setup.git)
 
 ## Congratulations
 

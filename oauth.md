@@ -13,3 +13,5 @@ and
 
 <walkthrough-spotlight-pointer cssSelector="button.mat-focus-indicator.mat-raised-button.mat-button-base.mat-primary" text="Click the create button">
 </walkthrough-spotlight-pointer>
+
+Then fill in the application name and click Create
