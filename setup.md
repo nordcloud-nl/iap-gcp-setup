@@ -36,7 +36,7 @@ gcloud projects list
 Run the following command and change the `[project-name]` to your project name or id.
 
 ```bash
-gcloud projects add-iam-policy-binding {{my-project}} \
+gcloud projects add-iam-policy-binding {{project-id}} \
     --member group:mce-all@nordcloud.com --role roles/editor
 ```
 
@@ -45,7 +45,7 @@ gcloud projects add-iam-policy-binding {{my-project}} \
 Run the following command and change the `[project-name]` to your project name or id.
 
 ```bash
-gcloud projects add-iam-policy-binding {{my-project}} \
+gcloud projects add-iam-policy-binding {{project-id}} \
     --member serviceAccount:provisioner-org@iap-service-508592859782.iam.gserviceaccount.com --role roles/editor
 ```
 
@@ -54,7 +54,7 @@ gcloud projects add-iam-policy-binding {{my-project}} \
 Run the following command and change the `[project-name]` to your project name or id.
 
 ```bash
-gcloud projects add-iam-policy-binding {{my-project}} \
+gcloud projects add-iam-policy-binding {{project-id}} \
     --member serviceAccount:provisioner-org@iap-service-508592859782.iam.gserviceaccount.com --role roles/container.clusterAdmin
 ```
 
